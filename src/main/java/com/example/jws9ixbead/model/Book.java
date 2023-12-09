@@ -12,8 +12,8 @@ import lombok.*;
 @ToString
 public class Book {
     @Id
-    @Column(name = "id", unique = true)
-    private Long id;
+    @Column(name = "ISBN", unique = true)
+    private Long isbn;
     @Column(name = "TITLE")
     private String title;
 
