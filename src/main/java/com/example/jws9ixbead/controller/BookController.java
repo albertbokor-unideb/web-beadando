@@ -44,9 +44,9 @@ public class BookController {
         return new ResponseEntity<>(bookObject,HttpStatus.OK);
     }
 
-    @PostMapping("/updateBookByISBN")
-    public ResponseEntity<Book> updateBookByISBN(@PathVariable Long isbn, @RequestBody Book newData){
-        Optional<Book> oldData =bookRepo.findById(isbn);
+    @PostMapping("/updateBookById")
+    public ResponseEntity<Book> updateBookById(@PathVariable Long id, @RequestBody Book newData){
+        Optional<Book> oldData =bookRepo.findById(id);
         if(oldData.isPresent()){
             Book updatedData = oldData.get();
             updatedData.setTitle(newData.getTitle());
@@ -57,8 +57,8 @@ public class BookController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
     @DeleteMapping
-    public ResponseEntity<HttpStatus> deleteBookByISBN(@PathVariable Long isbn){
-        bookRepo.deleteById(isbn);
+    public ResponseEntity<HttpStatus> deleteBookById(@PathVariable Long id){
+        bookRepo.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
