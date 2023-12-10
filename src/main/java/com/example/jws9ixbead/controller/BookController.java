@@ -56,7 +56,7 @@ public class BookController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    @DeleteMapping
+    @DeleteMapping("/deleteBookByISBN")
     public ResponseEntity<HttpStatus> deleteBookByISBN(@PathVariable Long isbn){
         bookRepo.deleteById(isbn);
         return new ResponseEntity<>(HttpStatus.OK);
